@@ -2,6 +2,8 @@
 #include "FilesHelper.h"
 #include <iostream>
 
+using namespace std;
+
 int Employee::employee_counter = 2100000;
 double Employee::total_salaries = 0;
 

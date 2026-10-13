@@ -1,6 +1,8 @@
-#include"parser.h"
+#include"Parser.h"
 #include<sstream>
 #include<string>
+
+using namespace std;
 
 vector<string>Parser::split(string line)
 {

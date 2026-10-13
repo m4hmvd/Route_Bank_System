@@ -23,7 +23,7 @@ public:
     static void getClients();
     static void getEmployees();
     static void getAdmins();
-    static void clearFile(string fileName, string lastIDfile);
+    static void clearFile(std::string fileName, std::string lastIDfile);
 
 
     static void saveAllClients();

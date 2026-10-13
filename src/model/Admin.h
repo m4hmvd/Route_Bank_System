@@ -1,9 +1,9 @@
 #pragma once
 #include "Employee.h"
 
-extern vector<Client> allClients;
-extern vector<Employee> allEmployees;
-extern vector<Admin> allAdmins;
+extern std::vector<Client> allClients;
+extern std::vector<Employee> allEmployees;
+extern std::vector<Admin> allAdmins;
 
 
 
@@ -14,13 +14,13 @@ private:
     static int admin_counter;
     void turn_on();
 
-    Admin(int id, string name, string password, double salary);
+    Admin(int id, std::string name, std::string password, double salary);
 
             /// THIS ONLY FOR CREATING OBJECTS WHICH COME FROM FILES
     friend class Parser;
 
 public:
-    Admin(string name, string password, double salary);
+    Admin(std::string name, std::string password, double salary);
     void see_system_statistics_till(Client* c,Employee* e);
     void risk_assessment(Client& c);
     void increase_salary(Employee& e, double amount);

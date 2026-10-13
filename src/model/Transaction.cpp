@@ -1,17 +1,19 @@
 #include "Transaction.h"
 
+using namespace std;
+
 Transaction::Transaction()
 {
     type = "";
     amount = 0;
-    time = Time();
+    time = TimeOfDay();
 }
 
 Transaction::Transaction(string t, double a)
 {
     type = t;
     amount = a;
-    time = Time();
+    time = TimeOfDay();
 }
 
 string Transaction::get_type()
@@ -24,7 +26,7 @@ double Transaction::get_amount()
     return amount;
 }
 
-Time Transaction::get_time()
+TimeOfDay Transaction::get_time()
 {
     return time;
 }

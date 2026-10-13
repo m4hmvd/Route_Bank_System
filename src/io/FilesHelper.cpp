@@ -1,11 +1,14 @@
 #include "FilesHelper.h"
 #include <fstream>
+#include "DataPaths.h"
+
+using namespace std;
 
 
 int FilesHelper::getNextClientId()
 {
     int id;
-    ifstream in("Clients_Last_ID.txt");
+    ifstream in(data::path("Clients_Last_ID.txt"));
 
     if (!in)
     {
@@ -18,7 +21,7 @@ int FilesHelper::getNextClientId()
     }
     in.close();
 
-    ofstream out("Clients_Last_ID.txt", ios::trunc);
+    ofstream out(data::path("Clients_Last_ID.txt"), ios::trunc);
     out << id;
     out.close();
 
@@ -32,7 +35,7 @@ int FilesHelper::getNextClientId()
 int FilesHelper::getNextEmployeeId()
 {
     int id;
-    ifstream in("Employees_Last_ID.txt");
+    ifstream in(data::path("Employees_Last_ID.txt"));
 
     if (!in)
     {
@@ -45,7 +48,7 @@ int FilesHelper::getNextEmployeeId()
     }
     in.close();
 
-    ofstream out("Employees_Last_ID.txt", ios::trunc);
+    ofstream out(data::path("Employees_Last_ID.txt"), ios::trunc);
     out << id;
     out.close();
 
@@ -55,7 +58,7 @@ int FilesHelper::getNextEmployeeId()
 int FilesHelper::getNextAdminId()
 {
     int id;
-    ifstream in("Admins_Last_ID.txt");
+    ifstream in(data::path("Admins_Last_ID.txt"));
 
     if (!in)
     {
@@ -68,7 +71,7 @@ int FilesHelper::getNextAdminId()
     }
     in.close();
 
-    ofstream out("Admins_Last_ID.txt", ios::trunc);
+    ofstream out(data::path("Admins_Last_ID.txt"), ios::trunc);
     out << id;
     out.close();
 
@@ -78,7 +81,7 @@ int FilesHelper::getNextAdminId()
 
 void FilesHelper::getClients()
 {
-    ifstream file("Clients.txt");
+    ifstream file(data::path("Clients.txt"));
     string line;
 
     if (file.is_open())
@@ -96,7 +99,7 @@ void FilesHelper::getClients()
 }
 void FilesHelper::getEmployees()
 {
-    ifstream file("Employees.txt");
+    ifstream file(data::path("Employees.txt"));
     string line;
 
     if (file.is_open())
@@ -113,7 +116,7 @@ void FilesHelper::getEmployees()
 }
 void FilesHelper::getAdmins()
 {
-    ifstream file("Admins.txt");
+    ifstream file(data::path("Admins.txt"));
     string line;
 
     if (file.is_open())
@@ -133,7 +136,7 @@ void FilesHelper::getAdmins()
 void FilesHelper::saveClient(Client obj)
 {
     string status = to_string(obj.getActive());
-    ofstream file("Clients.txt", ios::app);
+    ofstream file(data::path("Clients.txt"), ios::app);
 
     if (file.is_open())
     {
@@ -149,7 +152,7 @@ void FilesHelper::saveClient(Client obj)
 }
 void FilesHelper::saveEmployee(Employee obj)
 {
-    ofstream file("Employees.txt", ios::app);
+    ofstream file(data::path("Employees.txt"), ios::app);
 
     if (file.is_open())
     {
@@ -164,7 +167,7 @@ void FilesHelper::saveEmployee(Employee obj)
 }
 void FilesHelper::saveAdmin(Admin obj)
 {
-    ofstream file("Admins.txt", ios::app);
+    ofstream file(data::path("Admins.txt"), ios::app);
 
     if (file.is_open())
     {
@@ -192,7 +195,7 @@ void FilesHelper::clearFile(string filename, string lastIDfile)
 
 void FilesHelper::saveAllClients()
 {
-  ofstream file("Clients.txt", ios::trunc);
+  ofstream file(data::path("Clients.txt"), ios::trunc);
   if (file.is_open())
     {
     for (size_t i = 0; i < allClients.size(); i++)
@@ -211,7 +214,7 @@ void FilesHelper::saveAllClients()
 
 void FilesHelper::saveAllEmployees()
 {
-  ofstream file("Employees.txt", ios::trunc);
+  ofstream file(data::path("Employees.txt"), ios::trunc);
   if (file.is_open())
     {
     for (size_t i = 0; i < allEmployees.size(); i++)
@@ -226,7 +229,7 @@ void FilesHelper::saveAllEmployees()
 
 void FilesHelper::saveAllAdmins()
 {
-  ofstream file("Admins.txt", ios::trunc);
+  ofstream file(data::path("Admins.txt"), ios::trunc);
   if (file.is_open())
     {
     for (size_t i = 0; i < allAdmins.size(); i++)

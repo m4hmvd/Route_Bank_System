@@ -1,4 +1,7 @@
 #include "FileManager.h"
+#include "DataPaths.h"
+
+using namespace std;
 
 vector<Client> allClients;
 vector<Employee> allEmployees;
@@ -30,7 +33,7 @@ vector<string> FileManager::getData_intoLines(string textFile)
 void FileManager::addClient(Client obj)
 {
     string status = to_string(obj.getActive());
-    ofstream file("Clients.txt", ios::app);
+    ofstream file(data::path("Clients.txt"), ios::app);
 
     if (file.is_open())
     {
@@ -47,7 +50,7 @@ void FileManager::addClient(Client obj)
 
 void FileManager::addEmployee(Employee obj)
 {
-    ofstream file("Employees.txt", ios::app);
+    ofstream file(data::path("Employees.txt"), ios::app);
 
     if (file.is_open())
     {
@@ -63,7 +66,7 @@ void FileManager::addEmployee(Employee obj)
 
 void FileManager::addAdmin(Admin obj)
 {
-    ofstream file("Admins.txt", ios::app);
+    ofstream file(data::path("Admins.txt"), ios::app);
 
     if (file.is_open())
     {
@@ -81,7 +84,7 @@ void FileManager::addAdmin(Admin obj)
 
 void FileManager::getAllClients()
 {
-    ifstream file("Clients.txt");
+    ifstream file(data::path("Clients.txt"));
     string line;
 
     if (file.is_open())
@@ -100,7 +103,7 @@ void FileManager::getAllClients()
 
 void FileManager::getAllEmployees()
 {
-    ifstream file("Employees.txt");
+    ifstream file(data::path("Employees.txt"));
     string line;
 
     if (file.is_open())
@@ -118,7 +121,7 @@ void FileManager::getAllEmployees()
 
 void FileManager::getAllAdmins()
 {
-    ifstream file("Admins.txt");
+    ifstream file(data::path("Admins.txt"));
     string line;
 
     if (file.is_open())
@@ -138,19 +141,19 @@ void FileManager::getAllAdmins()
 
 void FileManager::removeAllClients()
 {
-    ofstream file("Clients.txt", ios::trunc);
+    ofstream file(data::path("Clients.txt"), ios::trunc);
     file.close();
 }
 
 void FileManager::removeAllEmployees()
 {
-    ofstream file("Employees.txt", ios::trunc);
+    ofstream file(data::path("Employees.txt"), ios::trunc);
     file.close();
 }
 
 void FileManager::removeAllAdmins()
 {
-    ofstream file("Admins.txt", ios::trunc);
+    ofstream file(data::path("Admins.txt"), ios::trunc);
     file.close();
 }
 

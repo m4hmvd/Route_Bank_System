@@ -1,5 +1,7 @@
 #include "Validate.h"
 
+using namespace std;
+
 bool Validate::validate_name(string name)
 {
     bool flag = true;

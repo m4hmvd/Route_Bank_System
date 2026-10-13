@@ -77,9 +77,9 @@ string Client::getAccountProgress()
 
 bool Client::isTransferTimeAllowed()
 {
-    Time now;
-    Time start(12, 0, 0);
-    Time end(23, 59, 59);
+    TimeOfDay now;
+    TimeOfDay start(12, 0, 0);
+    TimeOfDay end(23, 59, 59);
 
     return now.seconds_from(start) >= 0 &&
         end.seconds_from(now) >= 0;
@@ -146,12 +146,12 @@ void Client::auto_transfer_at(
     if (!isActive || !recipient.getActive())
         return;
 
-    Time now;
-    Time target(hour, minute, second);
+    TimeOfDay now;
+    TimeOfDay target(hour, minute, second);
 
     // Allowed window: 12:00 -> 23:59:59
-    Time start(12, 0, 0);
-    Time end(23, 59, 59);
+    TimeOfDay start(12, 0, 0);
+    TimeOfDay end(23, 59, 59);
 
     if (now.seconds_from(start) < 0 || end.seconds_from(now) < 0)
     {
@@ -329,7 +329,7 @@ void Client::show_transaction_history()
 
     for (int i = 0; i < transactionCount; i++)
     {
-        Time t = transactions[i].get_time();
+        TimeOfDay t = transactions[i].get_time();
 
         cout << transactions[i].get_type() << ": "
             << transactions[i].get_amount()

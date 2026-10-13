@@ -3,14 +3,13 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
-#include "parser.h"
-using namespace std;
+#include "Parser.h"
 
 
 
-extern vector<Client> allClients;
-extern vector<Employee> allEmployees;
-extern vector<Admin> allAdmins;
+extern std::vector<Client> allClients;
+extern std::vector<Employee> allEmployees;
+extern std::vector<Admin> allAdmins;
 
 class Client;
 class Employee;
@@ -31,7 +30,7 @@ public:
     void removeAllEmployees() override;
     void removeAllAdmins() override;
 
-    vector<string> getData_intoLines(string textFile);
+    std::vector<std::string> getData_intoLines(std::string textFile);
 
 
 

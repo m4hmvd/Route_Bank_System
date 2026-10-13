@@ -3,6 +3,8 @@
 #include <iostream>
 #include<iomanip>
 
+using namespace std;
+
 
 int Admin::admin_counter = 1900000;
 

@@ -3,7 +3,7 @@
 
 using namespace std;
 
-#include "Time.h"
+#include "TimeOfDay.h"
 
 /**
    Computes the correct remainder for negative dividend
@@ -20,7 +20,7 @@ int remainder(int a, int n)
       return n - 1 - (-a - 1) % n;
 }
 
-Time::Time(int hour, int min, int sec)
+TimeOfDay::TimeOfDay(int hour, int min, int sec)
 {
    assert(0 <= hour);
    assert(hour < 24);
@@ -32,34 +32,35 @@ Time::Time(int hour, int min, int sec)
    time_in_secs = 60L * 60 * hour + 60 * min + sec;
 }
 
-Time::Time()
+TimeOfDay::TimeOfDay()
 {
    time_t now = time(0);
-   struct tm& t = *localtime(&now);
-   time_in_secs = 60L * 60 * t.tm_hour + 60 * t.tm_min + t.tm_sec;
+   tm local;
+   localtime_s(&local, &now);
+   time_in_secs = 60L * 60 * local.tm_hour + 60 * local.tm_min + local.tm_sec;
 }
 
-int Time::get_hours() const
+int TimeOfDay::get_hours() const
 {
    return time_in_secs / (60 * 60);
 }
 
-int Time::get_minutes() const
+int TimeOfDay::get_minutes() const
 {
    return (time_in_secs / 60) % 60;
 }
 
-int Time::get_seconds() const
+int TimeOfDay::get_seconds() const
 {
    return time_in_secs % 60;
 }
 
-int Time::seconds_from(Time t) const
+int TimeOfDay::seconds_from(TimeOfDay t) const
 {
    return time_in_secs - t.time_in_secs;
 }
 
-void Time::add_seconds(int s)
+void TimeOfDay::add_seconds(int s)
 {
    const int SECONDS_PER_DAY = 60 * 60 * 24;
    time_in_secs = remainder(time_in_secs + s, SECONDS_PER_DAY);

@@ -5,7 +5,7 @@
    A class that describes a time of day
    (between 00:00:00 and 23:59:59)
 */
-class Time
+class TimeOfDay
 {
 public:
    /**
@@ -14,12 +14,12 @@ public:
       @param min the minutes
       @param sec the seconds
    */
-   Time(int hour, int min, int sec);
+   TimeOfDay(int hour, int min, int sec);
    /**
-      Constructs a Time object that is set to
+      Constructs a TimeOfDay object that is set to
       the time at which the constructor executes.
    */
-   Time();
+   TimeOfDay();
 
    /**
       Gets the hours of this time.
@@ -42,7 +42,7 @@ public:
       @param t the other time
       @return the number of seconds between this time and t
    */
-   int seconds_from(Time t) const;
+   int seconds_from(TimeOfDay t) const;
    /**
       Adds a number of seconds to this time.
       @param s the number of seconds to add

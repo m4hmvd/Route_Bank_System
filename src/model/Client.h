@@ -37,17 +37,17 @@ private:
     bool autoTransferDone;
     void turn_on();
     bool isTransferTimeAllowed();
-    string getAccountProgress();
+    std::string getAccountProgress();
 
 
-    Client(int id, string name, string password, double balance,
+    Client(int id, std::string name, std::string password, double balance,
             bool status, double loan, short risk_counter);
 
             /// THIS ONLY FOR CREATING OBJECTS WHICH COME FROM FILES
 
 public:
-    Client(string name, string password, double balance); /// Normal Condition
-    Client(string name, string password);
+    Client(std::string name, std::string password, double balance); /// Normal Condition
+    Client(std::string name, std::string password);
 
     void set_balance(double balance);
     double get_balance();
@@ -61,8 +61,8 @@ public:
     void request_loan();
     void auto_transfer_at(int hour,int minute,int second,double amount, Client& recipient);
 
-    bool verify_password(string oldPassword);
-    void change_password(string oldPassword ,string newPassword);
+    bool verify_password(std::string oldPassword);
+    void change_password(std::string oldPassword ,std::string newPassword);
 
     void check_balance();
     void check_account_progress();
@@ -75,4 +75,4 @@ public:
 
 
 
-extern vector<Client> allClients;
+extern std::vector<Client> allClients;

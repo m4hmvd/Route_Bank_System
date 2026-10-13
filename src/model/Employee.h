@@ -2,8 +2,8 @@
 #include "Person.h"
 #include "Client.h"
 
-extern vector<Client> allClients;
-extern vector<Employee> allEmployees;
+extern std::vector<Client> allClients;
+extern std::vector<Employee> allEmployees;
 
 
 
@@ -21,7 +21,7 @@ protected:
     void turn_on();
 
 
-    Employee(int id, string name, string password, double salary);
+    Employee(int id, std::string name, std::string password, double salary);
 
             /// THIS ONLY FOR CREATING OBJECTS WHICH COME FROM FILES
 
@@ -29,14 +29,14 @@ protected:
     friend class Parser;
 
 public:
-    Employee(string name, string password, double salary);
+    Employee(std::string name, std::string password, double salary);
 
     void set_salary(double salary);
     double get_salary();
 
     void activate_client(Client& c);
     void deactivate_client(Client& c);
-    void update_client_password(Client& recipient, string newPassword);
+    void update_client_password(Client& recipient, std::string newPassword);
     int	count_clients_till(Client* c);
     void view_client_balance(Client* c);
 
