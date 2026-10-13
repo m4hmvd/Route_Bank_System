@@ -361,3 +361,19 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+# ---- Project-specific ----
+# Compiled binaries (build output, not source)
+*.exe
+*.out
+*.dll
+
+# Code::Blocks IDE state
+*.cbp
+*.depend
+*.layout
+
+# Visual Studio IDE state
+.vs/
+Route_Bank_System/x64/
+Route_Bank_System/Debug/
+Route_Bank_System/Release/
